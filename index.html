@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym Home Page</title>
+  <style>
+    /* Reset default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body and Header */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      color: #bbb;
+    }
+
+    /* Main Home Section */
+    .home-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .option-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 280px;
+      text-align: center;
+      padding: 20px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+      transition: transform 0.3s ease;
+    }
+
+    .option-card:hover {
+      transform: scale(1.05);
+    }
+
+    .option-card h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .option-card p {
+      font-size: 16px;
+      color: #777;
+      margin-bottom: 15px;
+    }
+
+    .option-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .option-card button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .option-card button:hover {
+      background-color: #555;
+    }
+
+    /* Instagram Button Styling */
+    .instagram-btn {
+      background: linear-gradient(45deg, #f9a8d4, #f77d8e);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .instagram-btn:hover {
+      background: linear-gradient(45deg, #ff66cc, #ff3385);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    /* Mobile Friendly Styles */
+    @media (max-width: 600px) {
+      .option-card {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .option-card h3 {
+        font-size: 20px;
+      }
+
+      .option-card p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Welcome to Our Gym</h1>
+    <p>Your fitness journey starts here</p>
+  </header>
+
+  <!-- Main Home Content Section -->
+  <section class="home-section">
+    <!-- Gym Exercise Option -->
+    <div class="option-card" onclick="window.location.href='home.html'">
+      <img src="gym.jpeg" alt="Gym Exercise">
+      <h3>Gym Exercise</h3>
+      <p>Explore a variety of gym exercises to help you achieve your fitness goals.</p>
+      <button>View Exercises</button>
+    </div>
+
+    <!-- Diet Plan Option -->
+    <div class="option-card" onclick="window.location.href='dietp.html'">
+      <img src="diet.png" alt="Diet Plan">
+      <h3>Diet Plan</h3>
+      <p>Get personalized diet plans for a healthier lifestyle.</p>
+      <button>View Diet Plan</button>
+    </div>
+
+    <!-- WhatsApp Us Option -->
+    <div class="option-card">
+      <img src="whatsapp.png" alt="WhatsApp Us">
+      <h3>WhatsApp Us</h3>
+      <p>Have questions? Chat with us directly on WhatsApp.</p>
+      <button onclick="window.open('https://wa.me/1234567890', '_blank')">Chat on WhatsApp</button>
+    </div>
+
+    <!-- Instagram Option -->
+    <div class="option-card">
+      <img src="insta.webp" alt="Instagram">
+      <h3>Instagram</h3>
+      <p>Follow us for the latest updates and fitness tips.</p>
+      <button class="instagram-btn" onclick="window.open('https://www.instagram.com/yourgymprofile', '_blank')">Follow on Instagram</button>
+    </div>
+
+    <!-- Review Us Option -->
+    <div class="option-card" onclick="window.location.href='review-us.html'">
+      <img src="rev.png" alt="Review Us">
+      <h3>Review Us</h3>
+      <p>We value your feedback. Leave a review and help us improve.</p>
+      <button>Leave Review</button>
+    </div>
+
+    <!-- Complaints and Query Option -->
+    <div class="option-card" onclick="window.location.href='complaints-query.html'">
+      <img src="query.png" alt="Complaints & Query">
+      <h3>Complaints & Query</h3>
+      <p>Have a complaint or query? Let us know and we'll assist you.</p>
+      <button>Submit</button>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy;  2024 Our Gym - All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>

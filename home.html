@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym Exercises - Home</title>
+  <style>
+    /* Reset default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body and Header */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      color: #bbb;
+    }
+
+    /* Main Home Section */
+    .home-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px;
+      gap: 20px;
+    }
+
+    /* Category Cards */
+    .category-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 280px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      padding: 20px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+      overflow: hidden; /* Ensures image is contained within the card */
+    }
+
+    .category-card:hover {
+      transform: scale(1.05);
+    }
+
+    .category-card h3 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .category-card p {
+      font-size: 16px;
+      color: #777;
+    }
+
+    /* Image inside each category card */
+    .category-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover; /* Ensure image fills the space */
+      border-radius: 8px;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease; /* Make the image zoom on hover */
+    }
+
+    .category-card:hover img {
+      transform: scale(1.1); /* Slight zoom effect when hovering */
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    /* Mobile Friendly Styles */
+    @media (max-width: 600px) {
+      .category-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+      }
+
+      .category-card h3 {
+        font-size: 22px;
+      }
+
+      .category-card img {
+        height: 150px; /* Smaller image size on mobile */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Welcome to Gym Exercises</h1>
+    <p>Select a category to explore exercises and videos</p>
+  </header>
+
+  <!-- Home Page Content -->
+  <section class="home-section">
+    <!-- Category Cards -->
+    <div class="category-card" onclick="window.location.href='exercise_main.html'">
+      <img src="chest.webp" alt="Chest Exercises">
+      <h3>Chest</h3>
+      <p>Explore chest exercises and improve your strength.</p>
+    </div>
+
+    <div class="category-card" onclick="window.location.href='exercise_main.html'">
+      <img src="back.jpg" alt="Back Exercises">
+      <h3>Back</h3>
+      <p>Strengthen your back with these exercises.</p>
+    </div>
+
+    <div class="category-card" onclick="window.location.href='exercise_main.html'">
+      <img src="shoulder.jpg" alt="Shoulder Exercises">
+      <h3>Shoulders</h3>
+      <p>Build broader and stronger shoulders.</p>
+    </div>
+
+    <div class="category-card" onclick="window.location.href='exercise_main.html'">
+      <img src="biceps.webp" alt="Bicep Exercises">
+      <h3>Biceps</h3>
+      <p>Get defined arms with bicep exercises.</p>
+    </div>
+
+    <div class="category-card" onclick="window.location.href='exercise_main.html'">
+      <img src="tri.webp" alt="Triceps Exercises">
+      <h3>Triceps</h3>
+      <p>Enhance your arm strength with tricep exercises.</p>
+    </div>
+
+    <div class="category-card" onclick="window.location.href='exercise_main.html'">
+      <img src="leg.jpg" alt="Leg Exercises">
+      <h3>Legs</h3>
+      <p>Strengthen your legs with powerful exercises.</p>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Gym Exercises Web App</p>
+  </footer>
+
+</body>
+</html>

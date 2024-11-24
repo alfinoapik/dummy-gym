@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym Exercises</title>
+  <style>
+    /* Reset default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body and Header */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      color: #bbb;
+    }
+
+    /* Exercise List Container */
+    .exercise-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    /* Individual Exercise Cards */
+    .exercise-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;  /* Increase max-width of card */
+      margin: 20px;
+      padding: 10px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      overflow: hidden;  /* Hide overflow to ensure no video spills out */
+    }
+
+    .exercise-card:hover {
+      transform: scale(1.05);
+    }
+
+    .exercise-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    /* Focus on Video - Adjust video size for larger breathing space */
+    .exercise-card video {
+      width: 100%;  /* Make video fill the full width of the container */
+      height: auto; /* Maintain aspect ratio */
+      max-height: 60vh;  /* Restrict max height to ensure breathing space */
+      border-radius: 8px;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add shadow to highlight video */
+      object-fit: contain; /* Ensure full video is shown without cropping */
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    /* Mobile Friendly Styles */
+    @media (max-width: 600px) {
+      .exercise-card {
+        width: 100%;  /* Full width on smaller screens */
+        max-width: 100%;  /* Ensure it doesn't exceed screen width */
+        padding: 5px;  /* Reduce padding to maximize space */
+      }
+
+      .exercise-card video {
+        max-height: 50vh;  /* Adjust video size to allow breathing space on mobile */
+      }
+
+      .exercise-card h3 {
+        font-size: 20px; /* Smaller heading on mobile */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Gym Exercises</h1>
+    <p>Explore different gym exercises for your workout routine.</p>
+    <p>videos used here are just for dummy purpose</p>
+  </header>
+
+  <!-- Exercise List Section -->
+  <section id="exercise-list" class="exercise-list">
+    <!-- Exercises will be injected here by JavaScript -->
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Gym Exercises Web App - Apik Web</p>
+  </footer>
+
+  <script>
+    // Exercise data array (with name and video path for each exercise)
+    const exercises = [
+      {
+        name: "Push-up",
+        videoSrc: "vid.mp4", // Path to video
+      },
+      {
+        name: "Squat",
+        videoSrc: "vid.mp4", // Path to video
+      },
+      {
+        name: "Deadlift",
+        videoSrc: "vid.mp4", // Path to video
+      },
+      {
+        name: "Bicep Curl",
+        videoSrc: "vid.mp4", // Path to video
+      },
+      {
+        name: "Lunge",
+        videoSrc: "vid.mp4", // Path to video
+      }
+    ];
+
+    // Function to generate exercise cards dynamically
+    function generateExerciseCards() {
+      const exerciseList = document.getElementById('exercise-list');
+      
+      // Loop through the exercises array
+      exercises.forEach(exercise => {
+        const exerciseCard = document.createElement('div');
+        exerciseCard.classList.add('exercise-card');
+        
+        // Fill in the card content
+        exerciseCard.innerHTML = `
+          <h3>${exercise.name}</h3>
+          <video loop autoplay muted>
+            <source src="${exercise.videoSrc}" type="video/mp4">
+            <source src="${exercise.videoSrc.replace('.mp4', '.webm')}" type="video/webm">
+            <p>Your browser does not support the video tag or the video format.</p>
+          </video>
+        `;
+        
+        // Append the card to the exercise list section
+        exerciseList.appendChild(exerciseCard);
+      });
+    }
+
+    // Call the function to generate cards when the page loads
+    window.onload = generateExerciseCards;
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet Plans</title>
+  <style>
+    /* Reset default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body and Header */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      color: #bbb;
+    }
+
+    /* Diet Plan List */
+    .diet-plans {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .diet-plan-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 350px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      margin: 20px;
+    }
+
+    .diet-plan-card:hover {
+      transform: scale(1.05);
+    }
+
+    .diet-plan-card h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .diet-plan-card p {
+      font-size: 16px;
+      color: #777;
+      margin-bottom: 15px;
+    }
+
+    .diet-plan-card ul {
+      text-align: left;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .diet-plan-card button {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .diet-plan-card button:hover {
+      background-color: #555;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    /* Mobile Friendly Styles */
+    @media (max-width: 600px) {
+      .diet-plan-card {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .diet-plan-card h3 {
+        font-size: 20px;
+      }
+
+      .diet-plan-card p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Diet Plans</h1>
+    <p>Choose the best diet plan to complement your fitness goals.</p>
+  </header>
+
+  <!-- Diet Plan Cards -->
+  <section id="diet-plans" class="diet-plans">
+    <!-- Weight Loss Plan -->
+    <div class="diet-plan-card">
+      <h3>Weight Loss Plan</h3>
+      <p>Lose weight effectively with our well-balanced diet plan.</p>
+      <ul>
+        <li>Breakfast: Oatmeal with fruits</li>
+        <li>Lunch: Grilled chicken and vegetables</li>
+        <li>Snack: Almonds or a protein shake</li>
+        <li>Dinner: Salmon with steamed broccoli</li>
+      </ul>
+      <button onclick="window.location.href='contact.html'">Get This Plan</button>
+    </div>
+
+    <!-- Muscle Gain Plan -->
+    <div class="diet-plan-card">
+      <h3>Muscle Gain Plan</h3>
+      <p>Fuel your body with the right nutrients to build muscle.</p>
+      <ul>
+        <li>Breakfast: Scrambled eggs with avocado</li>
+        <li>Lunch: Chicken breast with brown rice</li>
+        <li>Snack: Greek yogurt with honey and almonds</li>
+        <li>Dinner: Beef steak with quinoa</li>
+      </ul>
+      <button onclick="window.location.href='contact.html'">Get This Plan</button>
+    </div>
+
+    <!-- Maintenance Plan -->
+    <div class="diet-plan-card">
+      <h3>Maintenance Plan</h3>
+      <p>Maintain your weight and health with a balanced diet.</p>
+      <ul>
+        <li>Breakfast: Whole grain toast with eggs</li>
+        <li>Lunch: Grilled chicken with salad</li>
+        <li>Snack: Cottage cheese with fruits</li>
+        <li>Dinner: Fish and veggies</li>
+      </ul>
+      <button onclick="window.location.href='contact.html'">Get This Plan</button>
+    </div>
+
+    <!-- Vegan Plan -->
+    <div class="diet-plan-card">
+      <h3>Vegan Plan</h3>
+      <p>Plant-based meals for health-conscious individuals.</p>
+      <ul>
+        <li>Breakfast: Avocado toast with chia seeds</li>
+        <li>Lunch: Quinoa salad with chickpeas</li>
+        <li>Snack: Protein bar or fruit</li>
+        <li>Dinner: Lentil stew with brown rice</li>
+      </ul>
+      <button onclick="window.location.href='contact.html'">Get This Plan</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Gym Diet Plans - All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
