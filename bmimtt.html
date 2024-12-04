@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator - Gym</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #66bb6a, #388e3c); /* Green gradient background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        /* Gym Name Styling */
+        .gym-name {
+            background-color: #2c6e49; /* Dark green background */
+            color: white;
+            padding: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        label {
+            font-size: 16px;
+            color: #555;
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        input[type="number"], select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="number"]:focus, select:focus {
+            border-color: #4caf50; /* Focus color green */
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #4caf50; /* Green button */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #388e3c; /* Darker green on hover */
+            transform: scale(1.05);
+        }
+
+        /* Result Box */
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e8f5e9; /* Default light green background */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: #333;
+            font-size: 20px;
+            font-weight: bold;
+            display: none;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .result span {
+            font-weight: normal;
+            color: #388e3c; /* Green color for the BMI result */
+        }
+
+        .result .classification {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: normal;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        /* Classification Colors */
+        .underweight {
+            background-color: #e8f5e9; /* Light green for underweight */
+            color: #4caf50; /* Green text */
+        }
+
+        .normal-weight {
+            background-color: #c8e6c9; /* Light mint green for normal weight */
+            color: #388e3c; /* Darker green text */
+        }
+
+        .overweight {
+            background-color: #fff9c4; /* Light yellow-green for overweight */
+            color: #ff9800; /* Orange text */
+        }
+
+        .obesity {
+            background-color: #f8d7da; /* Light red for obesity */
+            color: #e57373; /* Red text */
+        }
+
+        /* Obesity Warning Section */
+        .obesity-warning {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #e57373;
+            background-color: #f8d7da;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: normal;
+        }
+
+        .consult-link {
+            color: #388e3c;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .consult-link:hover {
+            color: #2c6e49;
+            text-decoration: underline;
+        }
+
+        /* Marketing Messages */
+        .marketing-message {
+            margin-top: 20px;
+            font-size: 16px;
+            padding: 20px;
+            border-radius: 10px;
+            font-weight: normal;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Underweight Message Styling */
+        .underweight-message {
+            background-color: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            color: #388e3c;
+            padding: 20px;
+            font-size: 18px;
+        }
+
+        .underweight-message h3 {
+            margin-top: 0;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .underweight-message a {
+            color: #388e3c;
+            font-weight: bold;
+        }
+
+        /* Normal Weight Message Styling */
+        .normal-weight-message {
+            background-color: #c8e6c9;
+            border-left: 5px solid #388e3c;
+            color: #2c6e49;
+            padding: 20px;
+            font-size: 18px;
+        }
+
+        .normal-weight-message h3 {
+            margin-top: 0;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* Overweight Message Styling */
+        .overweight-message {
+            background-color: #fff9c4;
+            border-left: 5px solid #ff9800;
+            color: #f57c00;
+            padding: 20px;
+            font-size: 18px;
+        }
+
+        .overweight-message h3 {
+            margin-top: 0;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* Obesity Message Styling */
+        .obesity-message {
+            background-color: #f8d7da;
+            border-left: 5px solid #e57373;
+            color: #c62828;
+            padding: 20px;
+            font-size: 18px;
+        }
+
+        .obesity-message h3 {
+            margin-top: 0;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* Animation for result fade-in */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Mobile responsiveness */
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            input[type="number"], select, button {
+                font-size: 14px;
+                padding: 12px;
+            }
+            .result {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Gym Name Section -->
+    <div class="gym-name">
+        FitLife Gym
+    </div>
+
+    <h1>BMI Calculator</h1>
+
+    <label for="weight">Enter your weight (kg):</label>
+    <input type="number" id="weight" placeholder="Weight in kilograms" required>
+
+    <label for="height-value">Enter your height:</label>
+    <input type="number" id="height-value" placeholder="Height" required>
+
+    <label for="height-unit">Select height unit:</label>
+    <select id="height-unit">
+        <option value="meters">Meters</option>
+        <option value="centimeters">Centimeters</option>
+        <option value="feet-inches">Feet & Inches</option>
+    </select>
+
+    <button onclick="calculateBMI()">Calculate BMI</button>
+
+    <div id="result" class="result">
+        <p>Your BMI is: <span id="bmi-value"></span></p>
+        <div id="classification" class="classification"></div>
+    </div>
+
+    <div id="marketing-message" class="marketing-message" style="display: none;">
+        <!-- Marketing message will go here -->
+    </div>
+
+    <div id="obesity-warning" class="obesity-warning" style="display: none;">
+        <p><strong>Warning:</strong></p>
+        <p><a href="https://www.fitlifegym.com/consult-a-dietician" class="consult-link" target="_blank">Consult a dietician for personalized advice.</a></p>
+    </div>
+</div>
+
+<script>
+    function calculateBMI() {
+        // Get user input
+        const weight = parseFloat(document.getElementById('weight').value);
+        const heightValue = parseFloat(document.getElementById('height-value').value);
+        const heightUnit = document.getElementById('height-unit').value;
+
+        // Validate input
+        if (isNaN(weight) || isNaN(heightValue) || weight <= 0 || heightValue <= 0) {
+            alert("Please enter valid weight and height values.");
+            return;
+        }
+
+        // Convert height to meters based on selected unit
+        let heightInMeters = 0;
+        if (heightUnit === 'meters') {
+            heightInMeters = heightValue;
+        } else if (heightUnit === 'centimeters') {
+            heightInMeters = heightValue / 100;  // Convert cm to meters
+        } else if (heightUnit === 'feet-inches') {
+            // Convert feet and inches to meters
+            let feet = Math.floor(heightValue);
+            let inches = heightValue - feet;
+            heightInMeters = (feet * 0.3048) + (inches * 0.0254);  // 1 foot = 0.3048 meters, 1 inch = 0.0254 meters
+        }
+
+        // Calculate BMI
+        const bmi = weight / (heightInMeters * heightInMeters);
+
+        // Show the result div
+        const resultDiv = document.getElementById('result');
+        const bmiValue = document.getElementById('bmi-value');
+        const classificationDiv = document.getElementById('classification');
+        const marketingMessageDiv = document.getElementById('marketing-message');
+        const obesityWarningDiv = document.getElementById('obesity-warning');
+        
+        resultDiv.style.display = 'block'; // Make result visible
+        bmiValue.textContent = bmi.toFixed(2); // Display BMI value
+
+        // Optionally, classify BMI and style accordingly
+        let classification = '';
+        let classificationClass = '';
+        if (bmi < 18.5) {
+            classification = 'Underweight';
+            classificationClass = 'underweight';
+            resultDiv.style.backgroundColor = '#e8f5e9'; // Light green for underweight
+            obesityWarningDiv.style.display = 'none';
+            marketingMessageDiv.innerHTML = `
+                <div class="underweight-message">
+                    <h3>Underweight</h3>
+                    <p><strong>Underweight:</strong> It’s important to gain weight in a healthy way. Join our gym and let our trainers help you build muscle and strength with personalized programs.</p>
+                    <p><a href="https://www.fitlifegym.com/join-us" class="consult-link">Join FitLife Gym today!</a></p>
+                </div>
+            `;
+        } else if (bmi >= 18.5 && bmi < 24.9) {
+            classification = 'Normal weight';
+            classificationClass = 'normal-weight';
+            resultDiv.style.backgroundColor = '#c8e6c9'; // Light mint green for normal weight
+            obesityWarningDiv.style.display = 'none';
+            marketingMessageDiv.innerHTML = `
+                <div class="normal-weight-message">
+                    <h3>Normal Weight</h3>
+                    <p><strong>Great job!</strong> You have a healthy weight. Keep it up by continuing your fitness journey with us at FitLife Gym!</p>
+                    <p><a href="https://www.fitlifegym.com/join-us" class="consult-link">Maintain your fitness level with us!</a></p>
+                </div>
+            `;
+        } else if (bmi >= 25 && bmi < 29.9) {
+            classification = 'Overweight';
+            classificationClass = 'overweight';
+            resultDiv.style.backgroundColor = '#fff9c4'; // Light yellow-green for overweight
+            obesityWarningDiv.style.display = 'none';
+            marketingMessageDiv.innerHTML = `
+                <div class="overweight-message">
+                    <h3>Overweight</h3>
+                    <p><strong>Overweight:</strong> Take action today to manage your weight with professional guidance. We offer personalized weight loss programs to help you achieve your goals.</p>
+                    <p><a href="https://www.fitlifegym.com/weight-loss" class="consult-link">Start your weight loss journey today!</a></p>
+                </div>
+            `;
+        } else {
+            classification = 'Obesity';
+            classificationClass = 'obesity';
+            resultDiv.style.backgroundColor = '#f8d7da'; // Light red for obesity
+            obesityWarningDiv.style.display = 'block'; // Show obesity warning
+            marketingMessageDiv.innerHTML = `
+                <div class="obesity-message">
+                    <h3>Obesity</h3>
+                    <p><strong>Obesity:</strong> Obesity is a serious condition that can increase the risk of heart disease, diabetes, and more. Take action now and work with our experts to regain your health.</p>
+                    <p><a href="https://www.fitlifegym.com/consult-a-dietician" class="consult-link">Consult our experts and start your journey to health.</a></p>
+                </div>
+            `;
+        }
+
+        // Apply classification and color styling
+        classificationDiv.textContent = `Classification: ${classification}`;
+        classificationDiv.className = `classification ${classificationClass}`;
+        marketingMessageDiv.style.display = 'block'; // Show marketing message
+    }
+</script>
+
+</body>
+</html>
