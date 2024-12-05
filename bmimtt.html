@@ -270,9 +270,6 @@
     <label for="weight">Enter your weight (kg):</label>
     <input type="number" id="weight" placeholder="Weight in kilograms" required>
 
-    <label for="height-value">Enter your height:</label>
-    <input type="number" id="height-value" placeholder="Height" required>
-
     <label for="height-unit">Select height unit:</label>
     <select id="height-unit" onchange="toggleHeightFields()">
         <option value="meters">Meters</option>
@@ -280,12 +277,17 @@
         <option value="feet-inches">Feet & Inches</option>
     </select>
 
+    <label for="height-value">Enter your height:</label>
+    <input type="number" id="height-value" placeholder="Height" required>
+
+    
+
     <!-- Separate inputs for feet and inches -->
     <div id="feet-inch-container" style="display: none;">
         <label for="feet">Feet:</label>
-        <input type="number" id="feet" placeholder="Feet" min="0" required>
+        <input type="number" id="feet" placeholder="Feet" min="0">
         <label for="inches">Inches:</label>
-        <input type="number" id="inches" placeholder="Inches (if inches is 0 enter 0)" min="0" max="11" required>
+        <input type="number" id="inches" placeholder="Inches (if inches is 0 mention it)" min="0" max="11">
     </div>
 
     <button onclick="calculateBMI()">Calculate BMI</button>
@@ -395,7 +397,7 @@
                     <p><a href="https://www.fitlifegym.com/weight-loss" class="consult-link">Start your weight loss journey today!</a></p>
                 </div>
             `;
-        } else {
+        } else if (bmi >= 29.9){
             classification = 'Obesity';
             classificationClass = 'obesity';
             resultDiv.style.backgroundColor = '#f8d7da'; // Light red for obesity
